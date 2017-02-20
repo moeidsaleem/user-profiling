@@ -1,0 +1,97 @@
+<div class="jumbotron">
+  <h2 class="text-center"><img src="content/img/logo.png" style="width:200px;height: auto;" ng-if="!isAuthenticated"></h2>
+  <h2 class="text-center">Home</h2>
+  <div class="text-center" ng-if="!isAuthenticated">
+    <p>You are not yet authenticated. <a ui-sref="login">Log in.</a></p>
+  </div>
+  <div class="text-center" ng-if="isAuthenticated">
+    <p>Thank you for logging in! <a href="javascript:;" ng-click="vm.authService.logout()">Log out.</a></p>
+    
+<div class="bs-example container">
+    <h1>Profile Sign Up</h1>
+    <form class="form-horizontal myform"  ng-submit="onSubmit()">
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="firstName">Industry Code</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" ng-model="formData.industry_code" name="industry_code" id="firstName" placeholder="Industry Code">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="lastName">Corporate Name	</label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" ng-model="formData.corporate_name" id="lastName" name="corporate_name" placeholder="Enter Corporate Name">
+            </div>
+        </div>
+         <div class="form-group">
+            <label class="control-label col-xs-3" >Company 'DBA' Name </label>
+            <div class="col-xs-9">
+                <input type="text" class="form-control" ng-model="formData.company_DBA" name="company_DBA" id="inputEmail" placeholder="Enter DBA Name" required="">
+            </div>
+        </div>
+           <div class="form-group">
+            <label class="control-label col-xs-3">Corporate Type (files taxes as) </label>
+            <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="corporateType" ng-model="formData.corporateType" value="S Corp"> S Corp
+                </label>
+            </div>
+             <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="corporateType" ng-model="formData.corporateType" value="C Corp"> C Corp
+                </label>
+            </div>
+             <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="corporateType" ng-model="formData.corporateType" value="LLC Corp"> LLC Corp
+                </label>
+            </div>
+            <div class="col-xs-2">
+                <label class="radio-inline">
+                    <input type="radio" name="corporateType" ng-model="formData.corporateType" value="Sole Proprietorship"> Sole Proprietorship
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">Formation Date</label>
+            <div class="col-xs-3">
+                <input type="date" class="form-control" ng-model="formData.formationDate" name="formationDate" id="formationDate" placeholder="mm/dd/yyyy">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="postalAddress">Business Description </label>
+            <div class="col-xs-9">
+                <textarea rows="3" class="form-control"  ng-model="formData.businessDescription" name="businessDescription" id="postalAddress" placeholder=" Enter Business Description"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3" for="Postcode" >Is the Company a Franchise? </label>
+            <div class="col-xs-9">
+                <input type="checkbox" name="companyFranchise"  ng-model="formData.isFranchise" name="isFranchise" value="yes" ng-model="comp"> Check if the company is franchise.
+            </div>
+        </div>
+        
+         <div class="form-group" ng-show="formData.isFranchise">
+            <label class="control-label col-xs-3" for="inputEmail">Name of franchise</label>
+            <div class="col-xs-9">
+        		<select name="franchise_name" id="input" class="form-control" ng-model="formData.franchise_name" ng-change="f()">
+        			<option value="{{x.name}}" ng-repeat="x in franchise as tex"  >{{x.name}}</option>
+        		</select>
+        		  <input ng-show="formData.franchise_name=='others'" type="text" class="form-control" ng-model="formData.franchise_name" name="franchise_name" id="firstName" placeholder="Custom Franchise Name">
+
+
+        	</div>
+         
+        </div>
+
+
+        <br>
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+                <input type="submit" class="btn btn-primary" value="Next" >
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+        </div>
+    </form>
+</div>
+  </div>
+</div>
