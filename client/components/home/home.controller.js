@@ -15,22 +15,21 @@
 
     $scope.formData= {};
 
-   $scope.franchise = [{
-    name:'10/Minute Manicure/10 Minute Manicure'},{
-    name:'1000 Degrees Pizzeria'},{
-    name:'1-800-Drycarpet'},{
-    name:'16 handles'},{
-    name:'123 fit'},
-    {
-    name:'others'}
-    ];
+   $scope.getFranchise = function(){
+    $http.get('components/home/data/franchise.json').then(function(response){
+        $scope.franchise = response.data;
+    })
+   }
+
+      $scope.getNaics = function(){
+    $http.get('components/home/data/naics.json').then(function(response){
+        $scope.naics = response.data;
+    })
+   }
+  
   
 
-  $scope.f = function(){
-    console.log($scope.formData.franchise_name);
 
- 
-  }
 
       $scope.onSubmit = function(){
    
